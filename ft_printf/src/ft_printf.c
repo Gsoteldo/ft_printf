@@ -1,5 +1,9 @@
 #include "../include/ft_printf.h"
 
+
+
+
+
 int ft_printf(const char *string, ...)
 {
     int total;
@@ -13,8 +17,6 @@ int ft_printf(const char *string, ...)
     {
         if(string[i] == '%')
         {
-            total++;
-            
             if (string[i+1] == 'c')
             {
                 i++;
@@ -30,26 +32,27 @@ int ft_printf(const char *string, ...)
                 i++;
                 total = total + ft_printinteger(va_arg(vargs, int));
             }
-            else if (string[i+1] == 'c')
+            else if (string[i+1] == 'p')
             {
-                /* code */
+                i++;
+                total = total + ft_printpointer(va_arg(vargs, unsigned long long));
+
             }
-            else if (string[i+1] == 'c')
+            else if (string[i+1] == 'x' || string[i+1] == 'X')
             {
                /* code */
             }
-            else if (string[i+1] == 'c')
+            else if (string[i+1] == 'u')
             {
               /* code */
             }
-            else if (string[i+1] == 'c')
+            else if (string[i+1] == '%')
             {
                 /* code */
             }
         }
         else
            total = total + ft_printchar(string[i]);
-            
 
         i++;
     }
