@@ -23,6 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C libft
 	@cp libft/libft.a .
+	@rm -f libft/libft.a
 	@mv libft.a $(NAME)
 	ar rc $(NAME) $(OBJ)
 
