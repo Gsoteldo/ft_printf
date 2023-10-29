@@ -19,7 +19,7 @@ int ft_printpointer(unsigned long long pointer)
     }
     while(i >= 0)
     {
-        count = count + ft_printchar(str[i]);
+        count = count + ft_printchar(str[i-1]);
         i--;
     }
     return (count);

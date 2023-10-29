@@ -15,8 +15,6 @@ BONUS_OBJ = $(BONUS:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
-
 
 all: $(NAME)
 
