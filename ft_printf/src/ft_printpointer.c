@@ -2,31 +2,25 @@
 
 int ft_printpointer(unsigned long long pointer)
 {
+    char *base;
+    char str[16];
     int i;
-    char hex[16];
-    int counter;
+    int count;
 
     i = 0;
-    counter = 0;
-    counter += ft_printstring("0x");
-
-    while (pointer != 0)
+    count = 0;
+    base = "0123456789abcdef";
+    count = count + ft_printstring("0x");
+    while (pointer > 0)
     {
-        int temp = 0;
-        temp = pointer % 16;
-        if (temp < 10)
-        {
-            hex[i] = temp + '0';
-            i++;
-        }
-        else
-        {
-            hex[i] = temp -10 + 'a';
-            i++;
-        }
+        str[i] = base[pointer % 16];
         pointer = pointer / 16;
-        counter = ft_printstring(hex);
+        i++;
     }
-    return (counter);
+    while(i >= 0)
+    {
+        count = count + ft_printchar(str[i]);
+        i--;
+    }
+    return (count);
 }
-
