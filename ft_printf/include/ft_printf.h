@@ -8,6 +8,7 @@ int ft_printchar(int c);
 int ft_printstring(char *str);
 int ft_printinteger(int num);
 int ft_printpointer(unsigned long long pointer);
+int	ft_printhexa(unsigned int n, char c);
 int ft_printf(const char *string, ...);
 
 #endif

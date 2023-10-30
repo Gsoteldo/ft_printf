@@ -1,9 +1,5 @@
 #include "../include/ft_printf.h"
 
-
-
-
-
 int ft_printf(const char *string, ...)
 {
     int total;
@@ -40,7 +36,8 @@ int ft_printf(const char *string, ...)
             }
             else if (string[i+1] == 'x' || string[i+1] == 'X')
             {
-               /* code */
+                i++;
+                total = total + ft_printhexa(va_arg(vargs, unsigned int), string[i]);
             }
             else if (string[i+1] == 'u')
             {
