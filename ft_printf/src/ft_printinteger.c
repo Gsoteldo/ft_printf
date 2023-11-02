@@ -21,7 +21,7 @@ int	ft_printinteger(int n)
 	else
 		num = n;
 	if (num / 10 != 0)
-		ft_printinteger(num / 10);
+		nchar = nchar + ft_printinteger(num / 10);
 	aux = num % 10 + '0';
 	ft_printchar(aux);
 	nchar++;

@@ -45,7 +45,8 @@ int ft_printf(const char *string, ...)
             }
             else if (string[i+1] == '%')
             {
-                /* code */
+                i++;
+                total = total + ft_printchar(string[i]);
             }
         }
         else

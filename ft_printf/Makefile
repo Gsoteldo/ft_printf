@@ -35,11 +35,8 @@ clean:
 	@make clean -C libft
 fclean: clean
 	rm -f $(NAME)
-	@rm -f libft/libft.a 
+#	@rm -f libft/libft.a 
 
 re: fclean all
-
-#bonus: $(OBJ) $(BONUS_OBJ)
-#	ar rc $(NAME) $(OBJ) $(BONUS_OBJ)
 
 .PHONY: all play clean fclean re 
