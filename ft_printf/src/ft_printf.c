@@ -41,7 +41,8 @@ int ft_printf(const char *string, ...)
             }
             else if (string[i+1] == 'u')
             {
-              /* code */
+                i++;
+                total = total + ft_printunsigned(va_arg(vargs, unsigned int));
             }
             else if (string[i+1] == '%')
             {

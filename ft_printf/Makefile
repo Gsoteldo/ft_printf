@@ -6,6 +6,7 @@ SRC =	./src/ft_printf.c \
 		./src/ft_printpointer.c \
 		./src/ft_printstring.c \
 		./src/ft_printhexa.c \
+		./src/ft_printunsigned.c \
 		main.c
 
 #BONUS = 
