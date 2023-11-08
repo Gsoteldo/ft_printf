@@ -27,4 +27,3 @@ int	ft_printinteger(int n)
 	nchar++;
 	return (nchar);
 }
-
