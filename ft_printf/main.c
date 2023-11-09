@@ -2,8 +2,8 @@
 #include <stdio.h>
 int main()
 {
-    int total = ft_printf("Hola mundo");
-
+    int total;
+    ft_printf("Hola mundo\n");
    ft_printf(" %d ",  -51);
    total = ft_printf("%c\n", 'A');
    printf("La frase tiene %d letras\n", total);
@@ -18,7 +18,7 @@ int main()
     ft_printf("El año es %% cuando se invento el pan\n");
     
 
-    ft_printf("Prueba de todos los tipos de datos:\n la letra %c es la primera de la palabra %s que tiene %i letras. El numero %i en hexadecimal es %x y en mayusculas es %X\n\n", 'h', "hola", 4, 42, 42, 42);
+    //ft_printf("Prueba de todos los tipos de datos:\n la letra %c es la primera de la palabra %s que tiene %i letras. El numero %i en hexadecimal es %x y en mayusculas es %X\n\n", 'h', "hola", 4, 42, 42, 42);
     //TODO: ft_printf("Hola Mundo %c"); (Revisar por que sigue imprimiendo el %c)
 
 

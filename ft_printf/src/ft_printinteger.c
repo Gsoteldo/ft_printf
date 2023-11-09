@@ -2,9 +2,9 @@
 
 int	ft_printinteger(int n)
 {
-	int		num;
+	int	num;
 	char	aux;
-	int nchar;
+	int	nchar;
 
 	nchar = 0;
 	if (n == -2147483648)

@@ -3,6 +3,7 @@
 static int	ft_printhexapointer(unsigned long long n)
 {
 	int	numchar;
+
 	numchar = 0;
 	if (n >= 16)
 	{
@@ -21,12 +22,12 @@ static int	ft_printhexapointer(unsigned long long n)
 	return (numchar);
 }
 
-int ft_printpointer(unsigned long long pointer)
+int	ft_printpointer(unsigned long long pointer)
 {
-    int count;
-    
-    count = 0;
-    count = count + ft_printstring("0x");
-    count = count + ft_printhexapointer(pointer);
-    return (count);
+	int	count;
+
+	count = 0;
+	count = count + ft_printstring("0x");
+	count = count + ft_printhexapointer(pointer);
+	return (count);
 }
