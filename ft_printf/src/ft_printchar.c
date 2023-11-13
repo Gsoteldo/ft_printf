@@ -1,10 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsoteldo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 18:11:25 by gsoteldo          #+#    #+#             */
+/*   Updated: 2023/11/13 18:11:28 by gsoteldo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf.h"
 
-int	ft_printchar(int c)
+void	ft_printchar(int c, int *total)
 {
-	int	count;
-
-	count = 0;
-	count = count + write(1, &c, 1);
-	return (count);
+	int aux;
+	
+	aux = write(1, &c, 1);
+	if (aux == -1)
+	{
+		*total = -1;
+		return ;
+	}
+	*total = *total + aux;
 }

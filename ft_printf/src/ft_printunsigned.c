@@ -1,16 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printunsigned.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsoteldo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 18:14:33 by gsoteldo          #+#    #+#             */
+/*   Updated: 2023/11/13 18:14:35 by gsoteldo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf.h"
 
-int	ft_printunsigned(unsigned int n)
+void	ft_printunsigned(unsigned int n, int *total)
 {
-	int	nchar;
+	int aux;
 
-	nchar = 0;
 	if (n <= 9)
-		nchar = nchar + ft_printchar(n + '0');
+	{
+		ft_printchar(n + '0', total);
+		aux = *total;
+		if (aux == -1)
+		{
+			*total = -1;
+			return ;
+		}
+	}
 	else
 	{
-		nchar = nchar + ft_printunsigned(n / 10);
-		nchar = nchar + ft_printchar(n % 10 + '0');
+		ft_printunsigned(n / 10, total);
+		aux = *total;
+		if (aux == -1)
+		{
+			*total = -1;
+			return ;
+		}
+		ft_printchar(n % 10 + '0', total);
 	}
-	return (nchar);
 }

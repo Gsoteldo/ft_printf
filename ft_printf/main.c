@@ -5,8 +5,9 @@ int main()
     int total;
     ft_printf("Hola mundo\n");
    ft_printf(" %d ",  -51);
-   total = ft_printf("%c\n", 'A');
-   printf("La frase tiene %d letras\n", total);
+   total = 2;
+   ft_printf("%d", 1);
+   ft_printf("La frase tiene %d letras\n", total);
    ft_printf("%s\n", "Hola mundo");
    ft_printf("El año es %c uando se invento el pan\n");
     ft_printf("El puntero es %p\n\n", -1);

@@ -1,24 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsoteldo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 18:11:52 by gsoteldo          #+#    #+#             */
+/*   Updated: 2023/11/13 18:11:54 by gsoteldo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/ft_printf.h"
 
-int	ft_type_print(char c, va_list *vargs, int *total, int *i)
+void	ft_type_print(char c, va_list vargs, int *total, int *i)
 {
 	if (c == 'c')
-		total = total + ft_printchar(va_arg(*vargs, int));
+		ft_printchar(va_arg(vargs, int), total);
 	else if (c == 's')
-		total = total + ft_printstring(va_arg(*vargs, char *));
+		ft_printstring(va_arg(vargs, char *), total);
 	else if (c == 'i' || c == 'd')
-		total = total + ft_printinteger(va_arg(*vargs, int));
+		ft_printinteger(va_arg(vargs, int), total);
 	else if (c == 'p')
-		total = total + ft_printpointer(va_arg(*vargs, unsigned long long));
+		ft_printpointer(va_arg(vargs, unsigned long long), total);
 	else if (c == 'x' || c == 'X')
-		total = total + ft_printhexa(va_arg(*vargs, unsigned int), c);
+		ft_printhexa(va_arg(vargs, unsigned int), c, total);
 	else if (c == 'u')
-		total = total + ft_printunsigned(va_arg(*vargs, unsigned int));
+		ft_printunsigned(va_arg(vargs, unsigned int), total);
 	else if (c == '%')
-		total = total + ft_printchar('%');
+		ft_printchar('%', total);
 	else
 		(*i)--;
-	return (*total);
+
 }
 
 int	ft_printf(const char *string, ...)
@@ -34,14 +46,16 @@ int	ft_printf(const char *string, ...)
 	{
 		if (string[i] == '%')
 		{
-			i++;
-			total = total + ft_type_print(string[i], &vargs, &total, &i);
+			ft_type_print(string[++i], vargs, &total, &i);
+			if(total == -1)
+				return -1;
 			i++;
 		}
 		else
 		{
-			total = total + ft_printchar(string[i]);
-			i++;
+			ft_printchar((char)string[i++], &total);
+			if(total == -1)
+				return -1;
 		}
 	}
 	va_end(vargs);
